@@ -17,4 +17,5 @@ test = 0
 for i in range(0,len(A)+1):
     if test <= total:
         test = A[i]
-    
+
+# o(n)
