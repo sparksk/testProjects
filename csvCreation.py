@@ -1,5 +1,5 @@
 ##Path location where new csv file will be stored
-csvPath = 'C:/Users/Sparks/Desktop'
+csvPath = 'C:/Users/Sparks/Desktop/desk/code/GitHub/testproject'
 
 object1 = 'test1'
 object2 = 'test2'
@@ -13,3 +13,10 @@ with open(csvPath+'/test.csv', "w") as DataTable:
     toWrite += "{0},{1},{2}\n".format(object1, object2, object3)
     ##writes the additions to the csv file
     DataTable.write(toWrite)
+
+##Reading in csv files
+import csv
+with open('test.csv', 'rb') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print row
