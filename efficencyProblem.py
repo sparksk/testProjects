@@ -3,19 +3,22 @@
 
 A = [2, 4, -7, 3, -1, 2 , 6, 3, 2, -10, -3, -3, 2]
 
-# o(n^3)
 
 
-# o(n^2)
-# total = 0
-# for i in range(0,len(A)):
-#     for j in range(0,len(A)):
-#         if sum(A[i:j]) >= total:
-#             total = sum(A[i:j])
-# print total
+######### o(n^3) #########
 
 
-# o(n): Greedy algorithm
+######### o(n^2) #########
+total = 0
+for i in range(0,len(A)):
+    for j in range(0,len(A)):
+        if sum(A[i:j]) >= total:
+            total = sum(A[i:j])
+print total
+
+
+######### o(n) #########
+# Greedy algorithm
 total = 0
 peak = []
 trough = []
