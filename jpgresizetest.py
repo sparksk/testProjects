@@ -11,7 +11,7 @@ def resizeAspect(im, size):
     return im.resize((int(w*aspect),int(h*aspect)),Image.ANTIALIAS)
 
 # imgList=glob.glob('/Volumes/Untitled/tmp/images/*.png')         #Find all png images in a directory
-imgList=glob.glob('C:/Users/Sparks/Desktop/jpgtest*.jpg')         # Find all jpg images in a directory
+imgList=glob.glob('C:/Users/Sparks/Desktop/desk/code/github/testproject/jpgtest/jpgtest*.jpg')         # Find all jpg images in a directory
 
 for img in imgList:                              #Loop through all found images
     im = Image.open(img)                     #open the image
@@ -28,6 +28,6 @@ for img in imgList:                              #Loop through all found images
     #croppedIm.show()                            #Show the cropped image
     path, rest = os.path.split(img)
     fileName, fileExtension=os.path.splitext(img)
-    im.save("C:/Users/Sparks/Desktop/jpgtest"+rest, "PNG")  #Save the cropped image
+    im.save("C:/Users/Sparks/Desktop/desk/code/github/testproject/jpgtest"+rest, "JPG")  #Save the cropped image
 
 print "No errors!!!!"
