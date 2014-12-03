@@ -8,7 +8,7 @@ import random
 # Empty list that gets added to
 B = []
 # For N iterations...
-for i in range(0,5000):
+for i in range(0,1000):
     # Randomly returns either a 1 or 2
     negpos = random.randint(1,2)
     # If a 1 is returned, pick a positive integer from 1:10 and add it to B
