@@ -6,10 +6,13 @@ require(cvTools)
 library(plyr)
 require(caret)
 
+
 ##### data DATA ########################
 ## Read data data
-fn.data <- "C:/Users/Sparks/Desktop/measurementsMASTER.csv"
-
+#Mac path
+fn.data <- "/Users/sparks/Google Drive/MastersArchive/ist557_dataMining/class_project/measurementsMASTER.csv"
+#Choose path via finder
+fn.data <- file.choose()
 ## assign data to object
 data <- read.csv(fn.data, header=TRUE)
 ## predictor variables need to be of type NUMERIC
@@ -21,12 +24,41 @@ data$saturation_stdev <- as.numeric(data$saturation_stdev)
 data$hue_stdev <- as.numeric(data$hue_stdev)
 ## LC class label needs to be of type FACTOR
 #data$Code <- as.factor(data$Code)
+str(data)
 
 
+# data = data frame; 9 columns, with class code in 9th column, and VisSig 3:8 columns
+# ClassNum = string
+rawSVM <- function (data, classNum) {
+	## Open Water - Class11
+	dataCL <- data[data$Code == classNum, 1:8]
+	dataCL$Code <- classNum
+	otherOW <- data[data$Code != classNum, 1:8]
+	otherOW$Code <- "Other"
+	dataCL <- rbind(dataCL, otherOW)
 
+	# Training data
+	TrainingdataCL <- dataCL[1:as.integer(nrow(dataCL[dataCL$Code == classNum, ]) * 0.80), ]
+	TrainingdataCLOther <- dataCL[nrow(dataCL[dataCL$Code == classNum, ])+1:as.integer(nrow(dataCL[dataCL$Code == "Other", ]) * 0.80), ]
+	Trainingset <- rbind(TrainingdataCL, TrainingdataCLOther)
 
+	# Testing data
+	TestStartOW <- nrow(TrainingdataCL)+1 
+	TestFinishOW <- nrow(dataCL[dataCL$Code == classNum, ])
+	TestingdataCL <- dataCL[TestStartOW:TestFinishOW, ]
+	TestStartOther <- nrow(dataCL[dataCL$Code == classNum, ])+nrow(TrainingdataCLOther)+1
+	TestFinishOther <- nrow(dataCL)
+	TestingDataOther <- dataCL[TestStartOther:TestFinishOther, ]
+	Testingset <- rbind(TestingdataCL, TestingDataOther)
 
+	# SVM 
+	OWsvm <- svm(Code ~ brightness_median + brightness_stdev + saturation_median + saturation_stdev + hue_median + hue_stdev, 
+		kernel = "linear", type = "C-classification", data=Trainingset)
+	#summary(OWsvm)
+	model.svm.test <- predict(OWsvm, Testingset[3:8], type="class")
+	return(summary(model.svm.test))
 
+}
 
 
 ## Open Water - Class11
