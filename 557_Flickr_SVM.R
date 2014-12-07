@@ -10,9 +10,9 @@ require(caret)
 ######################## Reading in DATA and pre-processing it ########################
 ## Read data data
 #Mac path
-fn.data <- "/Users/sparks/Google Drive/MastersArchive/ist557_dataMining/class_project/measurementsMASTER.csv"
+#fn.data <- "/Users/sparks/Google Drive/MastersArchive/ist557_dataMining/class_project/measurementsMASTER.csv"
 #Choose path via finder
-# fn.data <- file.choose()
+fn.data <- file.choose()
 ## assign data to object
 data <- read.csv(fn.data, header=TRUE)
 ## predictor variables need to be of type NUMERIC
@@ -69,7 +69,7 @@ rawSVM <- function (data, classNum) {
 }
 
 ## Run 'rawSVM' on desired LC class 
-rawSVM(data, "Class81")
+rawSVM(data, "Class41")
 
 
 
@@ -118,28 +118,29 @@ dataDH$Code <- "Class20"
 developed <- rbind(dataDO, dataDL, dataDM, dataDH)
 otherD <- data[data$Code != "Class21" & data$Code != "Class22" & data$Code != "Class23" & data$Code != "Class24", 1:8]
 otherD$Code <- "Other"
-dataDeveloped <- rbind(developed, otherD)
+dataDvO <- rbind(developed, otherD)
 
 ## SVM test for Developed ##
-aggregateSVM(dataDeveloped, "Class20")
+aggregateSVM(dataDvO, "Class20")
 
 
 ########## Forest ##########
-dataDO <- data[data$Code == "Class41", 1:8]
-dataDO$Code <- "Class40"
-dataDL <- data[data$Code == "Class42", 1:8]
-dataDL$Code <- "Class40"
-dataDM <- data[data$Code == "Class43", 1:8]
-dataDM$Code <- "Class40"
-# dataDH <- data[data$Code == "Class24", 1:8]
-# dataDH$Code <- "Class20"
-developed <- rbind(dataDO, dataDL, dataDM)
-otherD <- data[data$Code != "Class41" & data$Code != "Class42" & data$Code != "Class43", 1:8]
-otherD$Code <- "Other"
-dataDeveloped <- rbind(developed, otherD)
+dataFO <- data[data$Code == "Class41", 1:8]
+dataFO$Code <- "Class40"
+dataFO1 <- data[data$Code == "Class42", 1:8]
+dataFO1$Code <- "Class40"
+dataFO2 <- data[data$Code == "Class43", 1:8]
+dataFO2$Code <- "Class40"
+dataFO3 <- data[data$Code == "Class90", 1:8]
+dataFO3$Code <- "Class40"
+forest <- rbind(dataFO, dataFO1, dataFO2, dataFO3)
+otherF <- data[data$Code != "Class41" & data$Code != "Class42" & data$Code != "Class43" & data$Code != "Class90", 1:8]
+otherF$Code <- "Other"
+
+dataFvO <- rbind(forest, otherF)
 
 ## SVM test for Forest ##
-aggregateSVM(dataDeveloped, "Class40")
+aggregateSVM(dataFvO, "Class40")
 
 
 
@@ -186,6 +187,7 @@ dataDM <- data[data$Code == "Class23", 1:8]
 dataDM$Code <- "Class20"
 dataDH <- data[data$Code == "Class24", 1:8]
 dataDH$Code <- "Class20"
+developed <- data.frame()
 developed <- rbind(dataDO, dataDL, dataDM, dataDH)
 
 dataFO <- data[data$Code == "Class41", 1:8]
@@ -194,14 +196,144 @@ dataFO1 <- data[data$Code == "Class42", 1:8]
 dataFO1$Code <- "Class40"
 dataFO2 <- data[data$Code == "Class43", 1:8]
 dataFO2$Code <- "Class40"
-forest <- rbind(dataFO, dataFO1, dataFO2)
+dataFO3 <- data[data$Code == "Class90", 1:8]
+dataFO3$Code <- "Class40"
+forest <- data.frame()
+forest <- rbind(dataFO, dataFO1, dataFO2, dataFO3)
 
+dataDvF <- data.frame()
 dataDvF <- rbind(developed, forest)
 
 ## SVM test for Urban vs Forest ##
 aggregateSVM2(dataDvF, "Class20", "Class40")
 
+###############################################################
 
+dataDO <- data[data$Code == "Class21", 1:8]
+dataDO$Code <- "Class20"
+dataDL <- data[data$Code == "Class22", 1:8]
+dataDL$Code <- "Class20"
+dataDM <- data[data$Code == "Class23", 1:8]
+dataDM$Code <- "Class20"
+dataDH <- data[data$Code == "Class24", 1:8]
+dataDH$Code <- "Class20"
+developed <- data.frame()
+developed <- rbind(dataDO, dataDL, dataDM, dataDH)
+
+
+dataW <- data[data$Code == "Class11", 1:8]
+dataW$Code <- "Class10"
+dataW1 <- data[data$Code == "Class12", 1:8]
+dataW1$Code <- "Class10"
+dataW2 <- data[data$Code == "Class95", 1:8]
+dataW2$Code <- "Class10"
+water <- data.frame()
+water <- rbind(dataW, dataW1, dataW2)
+
+dataDvW <- data.frame()
+dataDvW <- rbind(developed, water)
+
+## SVM test for Urban vs Water ##
+aggregateSVM2(dataDvW, "Class20", "Class10")
+
+###############################################################
+
+dataFO <- data[data$Code == "Class41", 1:8]
+dataFO$Code <- "Class40"
+dataFO1 <- data[data$Code == "Class42", 1:8]
+dataFO1$Code <- "Class40"
+dataFO2 <- data[data$Code == "Class43", 1:8]
+dataFO2$Code <- "Class40"
+dataFO3 <- data[data$Code == "Class90", 1:8]
+dataFO3$Code <- "Class40"
+forest <- data.frame()
+forest <- rbind(dataFO, dataFO1, dataFO2, dataFO3)
+
+
+dataW <- data[data$Code == "Class11", 1:8]
+dataW$Code <- "Class10"
+dataW1 <- data[data$Code == "Class12", 1:8]
+dataW1$Code <- "Class10"
+dataW2 <- data[data$Code == "Class95", 1:8]
+dataW2$Code <- "Class10"
+water <- data.frame()
+water <- rbind(dataW, dataW1, dataW2)
+
+dataFvW <- data.frame()
+dataFvW <- rbind(forest, water)
+
+## SVM test for Urban vs Water ##
+aggregateSVM2(dataFvW, "Class40", "Class10")
+
+
+
+###############################################################
+
+
+
+# dataFI <- data[data$Code == "Class31", 1:8]
+# dataFI$Code <- "Class70"
+dataFI1 <- data[data$Code == "Class52", 1:8]
+dataFI1$Code <- "Class70"
+dataFI2 <- data[data$Code == "Class71", 1:8]
+dataFI2$Code <- "Class70"
+dataFI3 <- data[data$Code == "Class81", 1:8]
+dataFI3$Code <- "Class70"
+dataFI4 <- data[data$Code == "Class82", 1:8]
+dataFI4$Code <- "Class70"
+field <- data.frame()
+field <- rbind(dataFI1, dataFI2, dataFI3, dataFI4)
+
+
+dataW <- data[data$Code == "Class11", 1:8]
+dataW$Code <- "Class10"
+dataW1 <- data[data$Code == "Class12", 1:8]
+dataW1$Code <- "Class10"
+dataW2 <- data[data$Code == "Class95", 1:8]
+dataW2$Code <- "Class10"
+water <- data.frame()
+water <- rbind(dataW, dataW1, dataW2)
+
+dataFivW <- data.frame()
+dataFivW <- rbind(field, water)
+
+## SVM test for Urban vs Water ##
+aggregateSVM2(dataFivW, "Class70", "Class10")
+
+
+
+###############################################################
+
+dataFI <- data[data$Code == "Class31", 1:8]
+dataFI$Code <- "Class70"
+dataFI1 <- data[data$Code == "Class52", 1:8]
+dataFI1$Code <- "Class70"
+dataFI2 <- data[data$Code == "Class71", 1:8]
+dataFI2$Code <- "Class70"
+dataFI3 <- data[data$Code == "Class81", 1:8]
+dataFI3$Code <- "Class70"
+dataFI4 <- data[data$Code == "Class82", 1:8]
+dataFI4$Code <- "Class70"
+field <- data.frame()
+field <- rbind(dataFI, dataFI1, dataFI2, dataFI3, dataFI4)
+
+
+dataFO <- data[data$Code == "Class41", 1:8]
+dataFO$Code <- "Class40"
+dataFO1 <- data[data$Code == "Class42", 1:8]
+dataFO1$Code <- "Class40"
+dataFO2 <- data[data$Code == "Class43", 1:8]
+dataFO2$Code <- "Class40"
+dataFO3 <- data[data$Code == "Class90", 1:8]
+dataFO3$Code <- "Class40"
+forest <- data.frame()
+forest <- rbind(dataFO, dataFO1, dataFO2, dataFO3)
+
+dataFivF <- data.frame()
+dataFivF <- rbind(field, forest)
+
+## SVM test for Urban vs Water ##
+aggregateSVM2(dataFivF, "Class70", "Class40")
 
 
 
