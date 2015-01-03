@@ -1,5 +1,5 @@
 ##Path location where new csv file will be stored
-csvPath = 'C:/Users/Sparks/Desktop/desk/code/GitHub/testproject'
+csvPath = '/Users/sparks/Desktop'
 
 object1 = 'test1'
 object2 = 'test2'
