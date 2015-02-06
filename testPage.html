@@ -4,12 +4,12 @@
 
   <link href="/normalize.css" rel="stylesheet">
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 
   <style>
 
       ul {
-        padding: 60px 10px 10px 10px;
+        padding: 60px 10px 15px 10px;
         text-align: center;
       }
 
@@ -17,7 +17,7 @@
         display: inline;
         padding: 0px 15px 0px 15px;
         font-family: 'Roboto', sans-serif;
-        font-weight: 100;
+        font-weight: 500;
         color: black;
         font-size: 20px;
       }
@@ -29,23 +29,41 @@
       a1 {
         font-size: 30px;
         font-weight: 100;
-        padding: 0px 160px 0px 0px;
+        padding: 0 140px 0 0;
       }
 
       div {
-        height: 250px;
+        height: 60px;
         background-size: cover;
         position: relative;
         margin: 20px 0 20px 0;
       }
 
-      .first{
+      .headerImage{
+        height: 220px;
         background-image: url("https://farm8.staticflickr.com/7447/16264257619_c8bf21ff26_o.jpg");
         border-radius: 6px;
         background-size: cover;
+        background-position: center;
       }
 
-      article {
+      .post1 {
+        height: 240px;
+        background-image: url("https://farm8.staticflickr.com/7435/16457270422_e3c2f9b57b_h.jpg");
+        background-size: cover;
+        border-radius: 30px;
+        max-height: 175px;
+        max-width: 900px;
+        margin: 0 auto;
+        /*margin: 80px 180px 20px 180px;*/
+
+      }  
+
+      .date {
+          float: right;
+      }
+
+      p {
         font-family: 'Roboto', sans-serif;
         max-width: 585px;
         padding: 20px;
@@ -56,15 +74,66 @@
 
       /*changing the style structure for smaller screens*/
 
-      @media (max-width: 500px) {
-        h1 {
-          font-size: 36px;
+      @media (max-width: 700px) {
+        
+        ul {
+          padding: 30px 10px 10px 10px;
+          text-align: center;
         }
-
+        
         li {
           display: block;
-          padding: 5px;
+          margin: 8px 0 8px 0;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 500;
+          color: black;
+          font-size: 20px;
         }
+        
+        a1 {
+          font-size: 30px;
+          font-weight: 100;
+          margin: 0 -140px 0 0;
+        }
+        
+        div {
+          height: 25px;
+          background-size: cover;
+          position: relative;
+        }
+        
+        .headerImage{
+          height: 110px;
+          background-image: url("https://farm8.staticflickr.com/7447/16264257619_c8bf21ff26_o.jpg");
+          border-radius: 10px;
+          background-size: cover;
+        }
+        
+        .post1 {
+          height: 90px;
+          background-image: url("https://farm8.staticflickr.com/7435/16457270422_e3c2f9b57b_h.jpg");
+          background-size: cover;
+          border-radius: 10px;
+          max-height: 175px;
+          max-width: 900px;
+          margin: 0 auto;
+          /*margin: 80px 180px 20px 180px;*/
+        }
+
+        .date {
+          float: right;
+        }
+        
+        p {
+          font-family: 'Roboto', sans-serif;
+          max-width: 260px;
+          padding: 10px;
+          margin: 0 auto;
+          text-align: left;
+        }
+        
+      }
+      
       }
 
   </style>
@@ -92,23 +161,14 @@
     </li>
   </ul>
 
-  <div class="first">
+  <div class="headerImage">
   </div>
+  
+  <div></div>
 
-  <article>
-    <h2>VHS umami pop-up trust fund</h2>
-    <p>Marfa church-key kitsch bicycle rights, 8-bit mixtape cardigan gentrify Echo Park. Street art swag brunch, next level roof party Schlitz hella organic keffiyeh selfies. You probably haven't heard of them polaroid hashtag +1, meggings biodiesel Portland High Life cray tumblr retro.</p>
-  </article>
-
-  <article>
-    <h2>Sartorial synth Echo Park, roof party</h2>
-    <p>chambray you probably haven't heard of them pour-over viral selvage umami skateboard VHS post-ironic selfies. Wes Anderson gentrify fanny pack twee, bicycle rights bitters blog keffiyeh plaid flannel. Tonx irony cliche sustainable mlkshk bitters. Four loko leggings chambray Vice.</p>
-  </article>
-
-  <article>
-    <h2>Forage food truck keytar master cleanse</h2>
-    <p>ethical thundercats sustainable locavore quinoa Neutra. Aesthetic Cosby sweater single-origin coffee, bicycle rights organic lo-fi street art american apparel ennui four loko ethnic Brooklyn small batch. Forage YOLO polaroid</p>
-  </article>
+  <div class="post1">
+  <p>Lesson's learned from first big talk <span class="date">2/6/2015</span></p>
+  </div>
 
 
 </body>
