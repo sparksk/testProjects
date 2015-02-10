@@ -2,139 +2,163 @@
 
 <head>
 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
   <link href="/normalize.css" rel="stylesheet">
 
   <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 
   <style>
 
+    body {
+      /*font-family: helvetica, sans-serif;*/
+      margin: 0 auto;
+      /*max-width: 600px;*/
+      /*background: #232323;*/
+    }
+
+    div {
+      height: 40px;
+      background-size: cover;
+      position: relative;
+      margin: 20px 0 20px 0;
+    }
+
+    ul {
+      padding: 60px 10px 15px 10px;
+      text-align: center;
+    }
+
+    li {
+      display: inline;
+      padding: 0px 15px 0px 15px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      color: black;
+      font-size: 20px;
+    }
+
+    a {
+      color: black;
+    }
+
+    a1 {
+      font-size: 30px;
+      font-weight: 100;
+      padding: 0 140px 0 0;
+    }
+
+    .headerImage{
+      height: 220px;
+      background-image: url("https://farm8.staticflickr.com/7447/16264257619_c8bf21ff26_o.jpg");
+      border-radius: 6px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .post1 {
+      height: 240px;
+      background-image: url("https://farm8.staticflickr.com/7435/16457270422_e3c2f9b57b_h.jpg");
+      background-size: cover;
+      position: relative;
+      border-radius: 20px;
+      max-height: 175px;
+      max-width: 900px;
+      margin: 0 auto;
+      /*margin: 80px 180px 20px 180px;*/
+    }  
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 100;
+      font-size: 22px;
+      color: rgba(230,230,230,1);
+      background: black;
+      background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+      background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+      padding: 10px;
+      line-height: 28px;
+      text-align: justify;
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      height: 30px;
+      /*transition: height .5s;
+      -webkit-transition: height .5s;
+      -moz-transition: height .5s;*/
+    }
+
+    small {
+      opacity: 0;
+    }
+
+    .date {
+      font-size: 16px;
+      float: right;
+    }
+
+
+    /*changing the style structure for smaller screens*/
+
+    @media (max-width: 700px) {
+        
       ul {
-        padding: 60px 10px 15px 10px;
+        padding: 30px 10px 10px 10px;
         text-align: center;
       }
-
+        
       li {
-        display: inline;
-        padding: 0px 15px 0px 15px;
+        display: block;
+        margin: 8px 0 8px 0;
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
         color: black;
         font-size: 20px;
       }
-
-      a {
-        color: black;
-      }
-
+        
       a1 {
         font-size: 30px;
         font-weight: 100;
-        padding: 0 140px 0 0;
+        margin: 0 -140px 0 0;
       }
-
+        
       div {
-        height: 60px;
+        height: 25px;
         background-size: cover;
         position: relative;
-        margin: 20px 0 20px 0;
       }
-
+        
       .headerImage{
-        height: 220px;
+        height: 110px;
         background-image: url("https://farm8.staticflickr.com/7447/16264257619_c8bf21ff26_o.jpg");
-        border-radius: 6px;
+        border-radius: 10px;
         background-size: cover;
-        background-position: center;
       }
-
+        
       .post1 {
-        height: 240px;
+        height: 90px;
         background-image: url("https://farm8.staticflickr.com/7435/16457270422_e3c2f9b57b_h.jpg");
         background-size: cover;
-        border-radius: 30px;
+        border-radius: 10px;
         max-height: 175px;
         max-width: 900px;
         margin: 0 auto;
         /*margin: 80px 180px 20px 180px;*/
-
-      }  
-
-      .date {
-          float: right;
       }
-
+        
       p {
         font-family: 'Roboto', sans-serif;
-        max-width: 585px;
-        padding: 20px;
+        max-width: 260px;
+        padding: 10px;
         margin: 0 auto;
-        text-align: justify;
-      }
-
-
-      /*changing the style structure for smaller screens*/
-
-      @media (max-width: 700px) {
-        
-        ul {
-          padding: 30px 10px 10px 10px;
-          text-align: center;
-        }
-        
-        li {
-          display: block;
-          margin: 8px 0 8px 0;
-          font-family: 'Roboto', sans-serif;
-          font-weight: 500;
-          color: black;
-          font-size: 20px;
-        }
-        
-        a1 {
-          font-size: 30px;
-          font-weight: 100;
-          margin: 0 -140px 0 0;
-        }
-        
-        div {
-          height: 25px;
-          background-size: cover;
-          position: relative;
-        }
-        
-        .headerImage{
-          height: 110px;
-          background-image: url("https://farm8.staticflickr.com/7447/16264257619_c8bf21ff26_o.jpg");
-          border-radius: 10px;
-          background-size: cover;
-        }
-        
-        .post1 {
-          height: 90px;
-          background-image: url("https://farm8.staticflickr.com/7435/16457270422_e3c2f9b57b_h.jpg");
-          background-size: cover;
-          border-radius: 10px;
-          max-height: 175px;
-          max-width: 900px;
-          margin: 0 auto;
-          /*margin: 80px 180px 20px 180px;*/
-        }
-
-        .date {
-          float: right;
-        }
-        
-        p {
-          font-family: 'Roboto', sans-serif;
-          max-width: 260px;
-          padding: 10px;
-          margin: 0 auto;
-          text-align: left;
-        }
-        
+        text-align: left;
       }
       
+      .date {
+        float: right;
       }
+        
+    }
 
   </style>
 
@@ -148,7 +172,7 @@
     <li>
       <a1>
       <a href="#" style="text-decoration:none">kevin sparks</a>
-    </a1>
+      </a1>
     </li>
     <li>
       <a href="#" style="text-decoration:none">about</a>
@@ -167,7 +191,10 @@
   <div></div>
 
   <div class="post1">
-  <p>Lesson's learned from first big talk <span class="date">2/6/2015</span></p>
+  <p>Lesson's Learned from the "First Big Talk"<span class="date">February 6, 2015</span><br />
+    <small>yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo
+      yo yoyo yoyo yoyo yoyo yoyo yoyo yoyo yoyo yo yo yoyo yo yo yo yo yo</small>
+  </p>
   </div>
 
 
