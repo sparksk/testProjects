@@ -16,7 +16,7 @@ with open(csvPath+'/test.csv', "w") as DataTable:
 
 ##Reading in csv files
 import csv
-with open('test.csv', 'rb') as f:
+with open(csvPath+'/test.csv', 'rb') as f:
     reader = csv.reader(f)
     for row in reader:
         print row
