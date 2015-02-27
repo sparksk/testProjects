@@ -13,9 +13,23 @@ qualtrics_df = pd.read_csv("/Users/sparks/Google Drive/temp/onGround_and_aerial.
 #         print row[col]
 
 
+
+
+
 with open("Output.txt", "w") as text_file:
-    text_file.write("{}\n".format("Participant 1:"))
-    text_file.write("{}\n".format("I said fuck you"))
+    for index, row in qualtrics_df.iterrows():
+        # print row[0]
+        for col in range(0, len(row)):
+            # print row[col]
+            text_file.write("{}\n".format(row[col]))
+
+
+
+
+
+# with open("Output.txt", "w") as text_file:
+#     text_file.write("{}\n".format("Participant 1:"))
+#     text_file.write("{}\n".format("I said fuck you"))
 
 
 
