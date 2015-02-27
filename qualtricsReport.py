@@ -7,8 +7,8 @@ qualtrics_df = pd.read_csv("/Users/sparks/Google Drive/temp/onGround_and_aerial.
 # print qualtrics_df['ResponseID']
 # qualtrics_df.iterrows()
 
-# for index, row in qualtrics_df.iterrows():
-#     # print row[0]
+for index, row in qualtrics_df.iterrows():
+    print row['ResponseID']
 #     for col in range(0, len(row)):
 #         print row[col]
 
