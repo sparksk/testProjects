@@ -7,8 +7,29 @@ import itertools
 import urllib
 import csv
 
-alltours = itertools.permutations 
+alltours = itertools.permutations
 
 cities = {1, 2, 3}
 
-list(alltours(cities))
+print list(alltours(cities))
+
+
+
+Point = complex
+City  = Point
+
+def X(point):
+    "The x coordinate of a point."
+    return point.real
+
+def Y(point):
+    "The y coordinate of a point."
+    return point.imag
+
+def distance(A, B):
+    "The distance between two points."
+    return abs(A - B)
+
+A = City(3, 0)
+B = City(0, 4)
+print distance(A, B)
